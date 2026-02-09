@@ -1,61 +1,84 @@
 # MyStore
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.3.
+# 🛒 Angular Mini Store
 
-## Development server
+Aplicación desarrollada en **Angularversion 19.2.3.** que simula una tienda sencilla con:
 
-To start a local development server, run:
+✅ Búsqueda reactiva en tiempo real usando **RxJS**  
+✅ Listado de productos  
+✅ Carrito de compras con **Angular Signals**    
 
-```bash
-ng serve
-```
+El objetivo fue implementar una solución escalable, aplicando principios modernos de Angular como programación reactiva, manejo de estado y optimización de renderizado.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+# 🚀 Funcionalidades
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🔍 Customer Search (RxJS)
 
-```bash
-ng generate component component-name
-```
+Componente standalone que realiza búsquedas de productos mientras el usuario escribe, consumiendo una API simulada (`MockService`).
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Reglas implementadas
 
-```bash
-ng generate --help
-```
+- `debounceTime()` 
+- `distinctUntilChanged()`
+- `switchMap()`
 
-## Building
+### Beneficios
 
-To build the project run:
+- Mejor UX
+- Menor consumo de red
+- Flujo 100% reactivo
 
-```bash
-ng build
-```
+---
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## 🛍️ Listado de productos
 
-## Running unit tests
+- Renderizado mediante cards reutilizables
+- Tipado fuerte con interfaces TypeScript
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Cada producto se lista en cards y puede agregarse al carrito.
 
-```bash
-ng test
-```
+---
 
-## Running end-to-end tests
+## 🛒 Carrito de compras 
 
-For end-to-end (e2e) testing, run:
+Estado global implementado con **Signals (Angular 17+)**, evitando librerías externas como NgRx.
 
-```bash
-ng e2e
-```
+### Implementación
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+- `signal()` → lista reactiva de items
+- `computed()` → `totalPrice` y `totalCount`
+- `effect()` → log automático al cambiar el carrito
+- `addItem(product)` → actualiza estado automáticamente
 
-## Additional Resources
+### Beneficios
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-# my-store
-# my-store
+- Estado simple y predecible
+- Reactividad automática
+- Fácil mantenimiento
+
+---
+
+# 🧠 Decisiones técnicas
+
+## Arquitectura
+- Standalone components
+- Separación por features
+- Servicios para lógica de negocio
+
+## Escalabilidad
+- Componentes reutilizables
+- Bajo acoplamiento
+- Fácil extensión de nuevas features
+
+---
+
+# 🧩 Tecnologías usadas
+
+- Angular 17+
+- TypeScript
+- RxJS
+- Angular Signals
+- TailwindCSS / CSS
+
