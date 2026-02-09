@@ -1,1 +1,40 @@
-<p>customer-search works!</p>
+<div class="w-full my-10 flex flex-col justify-center items-center">
+  <h1 class="mb-6 font-semibold text-xl">
+    Busque el producto que desea comprar
+  </h1>
+  <form class="w-full flex justify-center">
+    <mat-form-field class="w-2/4">
+      <mat-label></mat-label>
+      <input
+        type="text"
+        matInput
+        [formControl]="searchControl"
+        [matAutocomplete]="auto"
+      />
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+        @for (option of filteredOptions$ | async; track option) {
+          <mat-option [value]="option">
+            <div class="flex items-center justify-between w-full gap-3">
+              <img [src]="option.image" alt="{{ option.name }}" />
+              <p>{{ option.name }}</p>
+            </div>
+          </mat-option>
+        }
+        @if (isLoading) {
+          <mat-option disabled>
+            <div class="flex items-center justify-between w-full">
+              Cargando Productos....
+            </div>
+          </mat-option>
+        }
+        @if (!(isLoading) && (filteredOptions$ | async)?.length === 0 && (searchControl.value?.length ?? 0) >= 3) {
+          <mat-option disabled>
+            <div class="flex items-center justify-between w-full">
+              No se encontraron productos
+            </div>
+          </mat-option>
+        }
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+</div>
