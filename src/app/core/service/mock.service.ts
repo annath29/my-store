@@ -159,4 +159,8 @@ export class MockService {
 
     return of(filtered).pipe(delay(800)); // retorna todos los objetos de tipo products encontrados
   }
+
+  getAllProducts(): Observable<Products[]> {
+    return of (this.products).pipe(delay(800))
+  }
 }

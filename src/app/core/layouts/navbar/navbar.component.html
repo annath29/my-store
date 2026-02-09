@@ -1,7 +1,10 @@
 <mat-toolbar class="rounded shadow-lg">
-  <span>My Store</span>
+  <span>Mi Tienda</span>
   <span class="flex-1"></span>
-  <button mat-mini-fab>
+  <button  mat-button [routerLink]="['/products']">Productos</button>
+  <button  mat-button [routerLink]="['']"><mat-icon>search</mat-icon>Buscar</button>
+  <span class="flex-1"></span>
+  <button mat-mini-fab (click)="openCart()">
     <mat-icon>shopping_cart</mat-icon>
   </button>
 </mat-toolbar>

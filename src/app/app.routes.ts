@@ -8,4 +8,16 @@ export const routes: Routes = [
         (m) => m.CustomerSearchComponent,
       ),
   },
+  {
+    path: 'products',
+    loadComponent: () =>
+      import('./features/products/list-products/list-products.component').then(
+        (m) => m.ListProductsComponent,
+      ),
+  },
+  {
+    path: '**',
+    redirectTo: '',
+    pathMatch: 'full',
+  },
 ];

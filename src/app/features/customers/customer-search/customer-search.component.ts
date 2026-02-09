@@ -9,10 +9,7 @@ import { Observable, of } from 'rxjs';
 import {
   debounceTime,
   distinctUntilChanged,
-  filter,
   finalize,
-  map,
-  startWith,
   switchMap,
 } from 'rxjs/operators';
 import { AsyncPipe } from '@angular/common';
@@ -21,7 +18,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MockService } from '../../../core/service/mock.service';
 import { Products } from '../../../core/models/products';
-import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-customer-search',
@@ -56,9 +52,4 @@ export class CustomerSearchComponent {
     return product && product.name ? product.name : '';
   }
 
-  // private _filter(name: string): Products[] {
-  //   const filterValue = name.toLowerCase();
-
-  //   return this.options.filter(option => option.name.toLowerCase().includes(filterValue));
-  // }
 }

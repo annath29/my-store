@@ -1,0 +1,40 @@
+<div class="w-full">
+  <h2 mat-dialog-title class="text-2xl font-bold">Carrito</h2>
+  <mat-dialog-content>
+    @if (cart.items().length === 0) {
+      <p>El carrito está vacío</p>
+    } @else {
+      <ul>
+        @for (item of cart.items(); track item.id) {
+          <li class="flex flex-col w-full shadow-lg my-2">
+            <div class="flex flex-row w-full justify-around gap-2">
+              <img
+                class="w-6"
+                [src]="item.product.image"
+                alt="{{ item.product.name }}"
+              />
+              <div>{{ item.product.name }}</div>
+              <div class="flex flex-col">
+                <span>Precio</span>
+                <div>${{ item.product.price }}</div>
+              </div>
+              <div class="flex flex-col">
+                <span>Cantidad</span>
+                <span class="text-center"> {{ item.quantity }}</span>
+              </div>
+            </div>
+            <div class="flex justify-end">
+              <span class="font-bold me-2">Subtotal</span>
+              <span>${{ item.product.price * item.quantity! }}</span>
+            </div>
+          </li>
+        }
+      </ul>
+
+      <hr />
+
+      <p><strong>Total items:</strong> {{ cart.totalCount() }}</p>
+      <p><strong>Total precio:</strong> ${{ cart.totalPrice() }}</p>
+    }
+  </mat-dialog-content>
+</div>

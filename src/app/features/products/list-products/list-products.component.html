@@ -1,0 +1,35 @@
+<div class="p-6 flex flex-row flex-wrap justify-between gap-2">
+  @for (product of products$ | async; track product) {
+    <div class="w-1/5 my-3 flex justify-center">
+      <mat-card>
+        <mat-card-header class="flex justify-center">
+          <mat-card-title class="text-center">{{
+            product.name
+          }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="my-3">
+          <img
+            mat-card-image
+            class="bg-cover"
+            src="https://material.angular.dev/assets/img/examples/shiba2.jpg"
+            alt="{{ product.name }}"
+          />
+          <p class="my-2 line-clamp-3">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam eos
+            neque nihil ratione rerum pariatur? Nulla quo autem amet harum
+            molestias similique excepturi sed enim at eum quasi consequatur
+            illo, ipsam consequuntur. Vitae perferendis sapiente repellat velit,
+            reiciendis beatae tempora dolore quas at quia quasi cumque hic,
+            dignissimos voluptate ipsam?
+          </p>
+          <p class="font-bold">$ {{product.price}}</p>
+        </mat-card-content>
+        <mat-card-actions class="flex- justify-center">
+          <button mat-button (click)="addCart(product)">
+            <mat-icon class="me-2">shopping_cart</mat-icon> Añadir al carrito
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  }
+</div>
