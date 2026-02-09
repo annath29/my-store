@@ -1,17 +1,13 @@
-import { Component, computed, effect, inject, signal } from '@angular/core';
-import { Products } from '../../../core/models/products';
-import { Cart } from './model/cart';
+import { Component, inject } from '@angular/core';
 import { CartService } from './services/cart.service';
-import { MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle } from '@angular/material/dialog';
+import {  MatDialogContent, MatDialogTitle } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-cart',
   imports: [MatDialogTitle,
-    MatDialogContent,
-    MatDialogActions,
-    MatDialogClose,],
+    MatDialogContent,],
   templateUrl: './cart.component.html',
 })
 export class CartComponent {
-  cart = inject(CartService);
+  cart = inject(CartService);// traigo el carrito para poder mostrar los elementos 
 }

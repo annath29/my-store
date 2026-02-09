@@ -24,6 +24,7 @@ export class ListProductsComponent implements OnInit {
 
 
   ngOnInit()
+  // llamo al servicio para traer los productos
   {
     this.products$ = this.mockService.getAllProducts().pipe(
       tap(() => this.isLoading = true),

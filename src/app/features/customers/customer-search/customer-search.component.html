@@ -15,7 +15,7 @@
         @for (option of filteredOptions$ | async; track option) {
           <mat-option [value]="option">
             <div class="flex items-center justify-between w-full gap-3">
-              <img [src]="option.image" alt="{{ option.name }}" />
+              <img class="w-10 h-10" [src]="option.image" alt="{{ option.name }}" />
               <p>{{ option.name }}</p>
             </div>
           </mat-option>

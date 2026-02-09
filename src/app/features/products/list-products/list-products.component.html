@@ -10,8 +10,8 @@
         <mat-card-content class="my-3">
           <img
             mat-card-image
-            class="bg-cover"
-            src="https://material.angular.dev/assets/img/examples/shiba2.jpg"
+            class="bg-cover aspect-square"
+           [src]="product.image"
             alt="{{ product.name }}"
           />
           <p class="my-2 line-clamp-3">
@@ -31,5 +31,8 @@
         </mat-card-actions>
       </mat-card>
     </div>
+  }
+  @if(isLoading){
+    <div>Cargando productos</div>
   }
 </div>
